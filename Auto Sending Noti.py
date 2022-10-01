@@ -29,12 +29,13 @@ def weather(city):
     date =  soup.select('#wob_dts')[0].get_text().strip()
     temperature = soup.select('#wob_tm')[0].get_text().strip()
     prediction = soup.select('#wob_dcp')[0].get_text().strip()
-    noti = '{}\n{}\n{} °C\n{}\n'.format(
-        location, date, temperature, prediction)
+    noti = '{}\n{}\n{} °C\n{}\n'.format(location, date, temperature, prediction)
     
+
     # III. Create noti pop-up
     toaster = ToastNotifier() #initiating toaster
     toaster.show_toast('Weather Notification', noti, icon_path='weather icon.ico', duration=5, threaded=True)
+
 
 weather('Ha Noi')
 
